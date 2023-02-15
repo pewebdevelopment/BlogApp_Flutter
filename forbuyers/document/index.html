@@ -1,0 +1,557 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Blog App UI Template for Flutter</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Blog App UI Template for Flutter&rdquo; Documentation by &ldquo;Ahmet Zeki Eymür&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Blog App UI Template for Flutter&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 12/18/2022<br>
+					<!--Updated: 12/01/2022<br>-->
+					By: Ahmet Zeki Eymür<br>
+					Email: <a href="mailto:azeymur@gmail.com">azeymur@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my item. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="https://codecanyon.net/user/zeymur">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+
+		<ul class="alpha">
+			<li><a href="#intro">Introduction</a></li>
+			<li><a href="#android">Android Customization</a></li>
+			<ul>
+				<li><a href="#manifest">App Manifest</a></li>
+				<ul>
+					<li><a href="#android_name">Application Name</a></li>
+					<li><a href="#android_icon">Application Icon</a></li>
+					<li><a href="#android_permissions">App Permissions</a></li>
+				</ul>
+				<li><a href="#gradle">Gradle Build Configuration</a></li>
+				<ul>
+					<li><a href="#android_id">Application Id</a></li>
+				</ul>
+			</ul>
+			<li><a href="#ios">Ios Customization</a></li>
+			<ul>
+				<li><a href="#xcode">Xcode Project Settings</a></li>
+				<ul>
+					<li><a href="#ios_name">Application Name</a></li>
+					<li><a href="#ios_icon">Application Icon</a></li>
+					<li><a href="#ios_id">Application Id</a></li>
+				</ul>
+			</ul>
+
+			<li><a href="#common">Common Settings</a></li>
+			<ul>
+				<li><a href="#pubspec">Settings In The "pubspec.yaml" File</a></li>
+				<ul>
+					<li><a href="#version">Version and Build Numbers</a></li>
+					<li><a href="#splash">Splash Screen</a></li>
+				</ul>
+			</ul>
+			<li><a href="#translation">Translation</a></li>
+			<li><a href="#color">Color Themes</a></li>
+			<li><a href="#mockservice">Removing Mock Service</a></li>
+			<li><a href="#more">More Help</a></li>
+		</ul>
+		
+		<hr>
+		
+		<h2 id="intro"><strong>Introduction</strong> - <a href="#toc">top</a></h2>
+		<p>
+			'Blog App UI Template for Flutter' is a user interface (UI) template made using Flutter.
+			Flutter is an open source framework by Google for building multi-platform applications from a single codebase.
+			You can get Flutter from the following address:<br/>
+			<a href='https://docs.flutter.dev/get-started/install'>https://docs.flutter.dev/get-started/install</a><br/>
+			 There are tutorials at this address that explain how to setup Flutter step by step for different operating systems. 
+		</p>
+		
+		<p>
+		You can use any text editor while developing an application with Flutter.
+		However, I recommend you to use Visual Studio Code.
+		VS Code is a lightweight editor and has useful plugins.
+		You can get the latest stable version from the following address:<br/>
+		<a href='https://code.visualstudio.com'>https://code.visualstudio.com</a><br/>
+			After the installation is complete, start VS Code and follow the steps below.
+		</p>
+		<ol>
+			<li>Click the <b>View > Command Palette</b> item in the pull-down menu.</li>
+			<li>Type "install", and select <b>Extensions: Install Extensions</b>.</li>
+			<li>Type “flutter” in the search field, select <b>Flutter</b> then click Install. This also installs the required <b>Dart</b> plugin.</li>
+		</ol>
+
+		<p>I also list some plugins that I find useful below. You don't have to install them, but I recommend.</p>
+		<ul>
+			<li><b>Awesome Flutter Snippets</b> / Neevash Ramdial</li>
+			<li><b>bloc</b> / Felix Angelov</li>
+			<li><b>Bracket Pair Colorization Toggler</b> / Dzhavat Ushev</li>
+		</ul>
+
+		<p>
+			After the installation is complete, extract the forbuyers.zip folder downloaded from CodeCanyon.
+			You will see two folders: 
+			<ul>
+				<li>document</li>
+				<li>blog_template</li>
+			</ul>
+			The 'Document' folder contains this help file.
+			The 'Template' folder contains the Flutter project.
+		</p>
+
+		<p>
+			There is a mock data source and service in the project.
+			So you can run the application immediately to test without doing anything.
+			Start the VS Code and follow the steps below.
+		</p>
+
+		<ol>
+			<li>Invoke <b>File > Open Folder</b>.</li>
+			<li>Select the folder of the Flutter project (blog_template).</li>
+			<li>Select the <b>pubspec.yaml</b> file in the Explorer panel.</li>
+			<li>Click the <b>Get Packages</b> button in the upper right corner.</li>
+			<li>Invoke <b>View > Command Palette</b> and execute <b>Flutter: Select Device</b> command.</li>
+			<li>Select a device from the<b>Device Selector</b></li>
+			<li>Select any dart file in the Explorer panel then invoke <b>Run > Start Debugging</b> or press <b>F5</b>.</li>
+		</ol>
+
+		<div align="center">
+			<a href="assets/images/vs_emu.png"><img src="assets/images/vs_emu.png" width="720" height="450"/></a>
+		</div>
+
+		<br>
+
+		<hr>
+
+		<h2 id="android"><strong>Android Customization</strong> - <a href="#toc">top</a></h2>
+		<p>
+			Some tasks that you need to do before publishing your Android applications are explained here.
+		</p>
+
+		<h3 id="manifest"><strong>App Manifest</strong> - <a href="#toc">top</a></h3>
+
+		<p>
+			Navigate to the <b>'blog_template/android/app/src/main/AndroidManifest.xml'</b> file and review the following values:
+		</p>
+		<p>
+			<b id="android_name">Application Name</b> - <a href="#toc">top</a><br/>
+			Update the <b>application</b> tag’s <b>android:label</b> attribute to reflect the name your want.
+
+<pre>&lt;manifest ...&gt;
+    &lt;application
+        <b>android:label="Blog Template"</b>
+        ...&gt;
+    ...
+    &lt;/application&gt;
+&lt;/manifest&gt;</pre>
+		</p>
+
+		<p>
+			<b id="android_icon">Application Icon</b> - <a href="#toc">top</a><br/>
+			In the blog_template/android/app/src/main/res/ directory, place your icon files in folders named using 
+			<a href="https://developer.android.com/guide/topics/resources/providing-resources#AlternativeResources">configuration qualifiers</a>.
+			Then update the <b>application</b> tag’s <b>'android:icon'</b> attribute to reference icons from the previous step.
+
+<pre>&lt;manifest ...&gt;
+    &lt;application
+        <b>android:icon="@mipmap/ic_launcher"</b>
+        ...&gt;
+    ...
+    &lt;/application&gt;
+&lt;/manifest&gt;</pre>
+			See <a href="https://docs.flutter.dev/deployment/android#adding-a-launcher-icon">Adding a Launcher Icon</a> for more info.
+		</p>
+
+		<p>
+			<b id="android_permissions">App Permissions</b> - <a href="#toc">top</a><br/>
+			If your app requests app permissions, you must declare these permissions in your app's manifest file.
+			For example, an app that needs the internet access the internet has this line in <b>AndroidManifest.xml</b>:
+		
+<pre>&lt;manifest ...&gt;
+    <b>uses-permission android:name="android.permission.INTERNET"/&gt;</b>
+    &lt;application ...&gt;
+        ...
+    &lt;/application&gt;
+&lt;/manifest&gt;</pre>
+
+			See <a href="https://developer.android.com/guide/topics/permissions/overview">Permissions on Anroid</a> for more info.
+		</p>
+
+		<div align="center">
+			<i>blog_template/android/app/src/main/AndroidManifest.xml</i>
+			<a href="assets/images/android_manifest.png"><img src="assets/images/android_manifest.png" width="781" height="587"/></a>
+		</div>
+
+		<h3 id="gradle"><strong>Gradle Build Configuration</strong> - <a href="#toc">top</a></h3>
+
+		<p>
+			Open the <b>'blog_template/android/app/build.gradle'</b> file in the Explorer panel and review the following values:
+		</p>
+
+		<b id="android_id">Application Id</b> - <a href="#toc">top</a>
+		<p>
+			Every Android app has a unique application id. You should specify your app's id in the module's <b>build.gradle</b> file.
+			Your application id must be the same as your application id in the Play Store. For example;
+
+<pre>android {
+    defaultConfig {
+        <b>applicationId = "com.example.blog_template"</b>
+        ...
+    }
+    ...
+}</pre>
+			
+			The naming rules for the application id are a bit more restrictive. 
+			See <a href="https://developer.android.com/studio/build/configure-app-module#set-application-id">Set the application ID</a> for more info.
+		</p>
+
+		<div align="center">
+			<i>blog_template/android/app/build.gradle</i>
+			<a href="assets/images/build_gradle.png"><img src="assets/images/build_gradle.png" width="781" height="587"/></a>
+		</div>
+
+		<hr>
+
+		<h2 id="ios"><strong>Ios Customization</strong> - <a href="#toc">top</a></h2>
+		<p>
+			Some tasks that you need to do before publishing your iOS application are explained here.
+		</p>
+
+		<h3 id="xcode"><strong>Xcode Project Settings</strong> - <a href="#toc">top</a></h3>
+		<p>
+			Open the 'blog_template/ios/Runner.xcworkspace' file in the XCode. 
+			To view your app’s settings, select the Runner target in the Xcode navigator.
+		</p>
+		
+		<b id="ios_name">Application Name</b> - <a href="#toc">top</a>
+		<p>
+			Enter the name of your application to 'Display Name'.
+		</p>
+
+		<b id="ios_icon">Application Icon</b> - <a href="#toc">top</a>
+		<p>
+			Select the 'Assets.xcassets' file in the Xcode project navigator. Update the placeholder icons with your own app icons.
+		</p>
+
+		<b id="ios_id">Application Id</b> - <a href="#toc">top</a>
+		<p>
+			Enter the application id you registered on App Store Connect to 'Bundle Identifier'. 
+		</p>
+		
+		<p>See <a href="https://docs.flutter.dev/deployment/ios#review-xcode-project-settings">Review Xcode project settings</a> for more info.</p>
+
+		<div align="center">
+			<i>blog_template/ios/Runner.xcworkspace (Runner Target)</i>
+			<a href="assets/images/xcode.png"><img src="assets/images/xcode.png" width="831" height="551"/></a>
+		</div>
+
+		<div align="center">
+			<i>blog_template/ios/Runner.xcworkspace (Assets.xcassets)</i>
+			<a href="assets/images/xcode_assets.png"><img src="assets/images/xcode_assets.png" width="831" height="551"/></a>
+		</div>
+
+		<hr>
+
+		<h2 id="common"><strong>Common Settings</strong> - <a href="#toc">top</a></h2>
+		<p>
+			Common tasks that you need to do before publishing your Android & iOS application are explained here.
+		</p>
+
+		<h3 id="pubspec"><strong>Settings In The "pubspec.yaml" File</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Navigate to the <b>'blog_template/pubspec.yaml'</b> and review the following lines:</p>
+		
+		
+		<b id="version">Verison and Build Numbers</b> - <a href="#toc">top</a>
+		<p>
+			The version number is three numbers separated by dots, followed by an optional build number, separated by a +. To change it, update the following line:<br/>
+<pre>version: 1.0.0+1</pre>
+		</p>
+		
+		<b id="splash">Splash Screen</b> - <a href="#toc">top</a>
+		<p>
+			Go to the following section in the "pubspec.yaml" file:
+<pre>flutter_native_splash:</pre>
+			Use color to set the background of your splash screen to a solid color.
+<pre>color: "#43A047"</pre>
+			The image parameter allows you to specify an image used in the splash screen. 
+			It must be a png file and should be sized for 4x pixel density and copied to the asset folder.
+<pre>image: assets/splash.png</pre>	
+			Use following parameters to set background color and image of the splash screen, when the device is in dark mode.
+<pre>color_dark: "#388E3C"
+image_dark: assets/splash.png</pre>
+			After editing these settings, run the following command in the terminal:
+<pre>flutter pub run flutter_native_splash:create</pre>
+			When the package finishes running, your splash screen is ready. 
+			See <a href="https://pub.dev/packages/flutter_native_splash">flutter_native_splash</a> for more info.
+		</p>
+
+		<hr/>
+
+		<h2 id="translation"><strong>Translation</strong> - <a href="#toc">top</a></h2>
+		<p>
+			The texts in the project are not hard coded. All strings are added to following file: <br/>
+			<b>blog_template/lib/localization/locals.dart</b><br>
+			Changing the value of a text in this file will have an effect on the entire application.
+		</p>
+		<pre>
+static const _localizedValues = &lt;String, Map&lt;String, String&gt;&gt;{
+'en': {
+	'Home': 'Home',
+	'MyAccount': 'My Account',
+	'AccountDetails': 'Account Details',
+	'Info': 'Info',
+	'EditPhotoTapped': 'Edit photo tapped.',
+...
+		</pre>
+
+		<p>
+			The Locals class includes all of its translations directly in per language Maps.
+			You can translate the application to another language by changing the text. You must not change the keys (left side).  
+			It is also possible to support more than one language in your application. Here’s some code that sets the app’s language to Spanish.
+		</p>
+		
+		<p><b>blog_template/lib/localization/locals.dart</b></p>
+
+<pre>...
+static const _localizedValues = &lt;String, Map&lt;String, String&gt;&gt;{
+    'en': {
+      'title': 'Hello World',
+    },
+    <b>'es': {
+      'title': 'Hola Mundo',
+    },</b>
+  };
+...</pre>
+
+  		<p><b>blog_template/lib/main.dart</b></p>
+
+<pre>...
+supportedLocales: const [
+    Locale('en', ''), // English, no country code
+    <b>Locale('es', ''), //Spanish, no country code</b>
+],
+...
+</pre>
+
+		<p>
+			See <a href='https://docs.flutter.dev/development/accessibility-and-localization/internationalization#alternative-internationalization-workflows'>Alternative internationalization workflows</a> for more info.
+		</p>
+
+		<hr/>
+
+		<h2 id="color"><strong>Color Themes</strong> - <a href="#toc">top</a></h2>
+		<p>
+			The project has 14 color themes created using the Material color palette.
+			Each theme supports both light and dark mode.
+			Color themes are defined in the <b>"blog_template/lib/app_theme.dart"</b> file.
+			Which theme to use is specified in the following file:
+			"<b>blog_template/lib/main.dart</b>"
+			You can use the color theme you want by changing the line below.
+		</p>
+<pre>...
+supportedLocales: const [
+    <b>theme: AppTheme.greenLightTheme,</b> // color theme for light mode
+    <b>darkTheme: AppTheme.greenDarkTheme,</b> // color theme for dark mode
+],
+</pre>
+		<p>
+			Only the colors in the material palette are used in the themes.
+			Normal tones are used for light mode, and brighter tones starting with 'A' are used for dark mode.
+			All color themes in the project are listed below:
+		</p>
+	
+		<table>
+
+			<tr>
+				<th colspan="2" style="text-align: center;">Light Mode</th>
+				<th colspan="2" style="text-align: center;">Dark Mode</th>
+			</tr>
+
+			<tr>
+				<td style="text-align: center; font-style: italic;">redLightTheme</td>
+				<td style="text-align: center; font-style: italic;">pinkLightTheme</td>
+				<td style="text-align: center; font-style: italic;">redDarkTheme</td>
+				<td style="text-align: center; font-style: italic;">pinkDarkTheme</td>
+			</tr>
+
+			<tr>
+				<td><img src="assets/images/theme_red.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_pink.png" width="186" height="205"/></td>
+				<td><img src="assets/images/theme_red_dark.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_pink_dark.png" width="186" height="205"/></td>
+			</tr>
+
+			<tr>
+				<td style="text-align: center; font-style: italic;">purpleLightTheme</td>
+				<td style="text-align: center; font-style: italic;">deepPurpleLightTheme</td>
+				<td style="text-align: center; font-style: italic;">purpleDarkTheme</td>
+				<td style="text-align: center; font-style: italic;">deepPurpleDarkTheme</td>
+			</tr>
+
+			<tr>
+				<td><img src="assets/images/theme_purple.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_deep_purple.png" width="186" height="205"/></td>
+				<td><img src="assets/images/theme_purple_dark.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_deep_purple_dark.png" width="186" height="205"/></td>
+
+			</tr>
+
+			<tr>
+				<td style="text-align: center; font-style: italic;">indigoLightTheme</td>
+				<td style="text-align: center; font-style: italic;">blueLightTheme</td>
+				<td style="text-align: center; font-style: italic;">indigoDarkTheme</td>
+				<td style="text-align: center; font-style: italic;">blueDarkTheme</td>
+
+			</tr>
+
+			<tr>
+				<td><img src="assets/images/theme_indigo.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_blue.png" width="186" height="205"/></td>
+				<td><img src="assets/images/theme_indigo_dark.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_blue_dark.png" width="186" height="205"/></td>
+
+			</tr>
+
+			<tr>
+				<td style="text-align: center; font-style: italic;">cyanLightTheme</td>
+				<td style="text-align: center; font-style: italic;">tealLightTheme</td>
+				<td style="text-align: center; font-style: italic;">cyanDarkTheme</td>
+				<td style="text-align: center; font-style: italic;">tealDarkTheme</td>
+			</tr>
+
+			<tr>
+				<td><img src="assets/images/theme_cyan.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_teal.png" width="186" height="205"/></td>
+				<td><img src="assets/images/theme_cyan_dark.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_teal_dark.png" width="186" height="205"/></td>
+			</tr>
+
+			<tr>
+				<td style="text-align: center; font-style: italic;">greenLightTheme</td>
+				<td style="text-align: center; font-style: italic;">limeLightTheme</td>
+				<td style="text-align: center; font-style: italic;">greenDarkTheme</td>
+				<td style="text-align: center; font-style: italic;">limeDarkTheme</td>
+			</tr>
+
+			<tr>
+				<td><img src="assets/images/theme_green.png" width="186" height="205"/></td>
+				<td><img src="assets/images/theme_lime.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_green_dark.png" width="186" height="205"/></td>
+				<td><img src="assets/images/theme_lime_dark.png" width="186" height="205" /></td>
+			</tr>
+
+			<tr>
+				<td style="text-align: center; font-style: italic;">amberLightTheme</td>
+				<td style="text-align: center; font-style: italic;">orangeLightTheme</td>
+				<td style="text-align: center; font-style: italic;">amberDarkTheme</td>
+				<td style="text-align: center; font-style: italic;">orangeDarkTheme</td>
+			</tr>
+
+			<tr>
+				<td><img src="assets/images/theme_amber.png" width="186" height="205"/></td>
+				<td><img src="assets/images/theme_orange.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_amber_dark.png" width="186" height="205"/></td>
+				<td><img src="assets/images/theme_orange_dark.png" width="186" height="205" /></td>
+			</tr>
+
+			<!-- -->
+
+			<tr>
+				<td style="text-align: center; font-style: italic;">deepOrangeLightTheme</td>
+				<td style="text-align: center; font-style: italic;">lightGreenLightTheme</td>
+				<td style="text-align: center; font-style: italic;">deepOrangeDarkTheme</td>
+				<td style="text-align: center; font-style: italic;">lightGreenLightTheme</td>
+			</tr>
+
+			<tr>
+				<td><img src="assets/images/theme_deep_orange.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_light_green.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_deep_orange_dark.png" width="186" height="205" /></td>
+				<td><img src="assets/images/theme_light_green_dark.png" width="186" height="205" /></td>
+			</tr>
+
+		</table>
+
+		<hr/>
+
+		<h2 id="mockservice"><strong>Removing Mock Service</strong> - <a href="#toc">top</a></h2>
+		<p>
+			The project has a mock service and data source for testing.
+			When you add your own service to the project, you will no longer need this mock service and data source.
+		</p>
+		<p>
+			You can remove the mock data source from your project by deleting the following folder:<br>
+			<code>blog_template\lib\datastores\mock</code>
+		</p>
+		<p>
+			To remove the fake service from your project, delete the following file:<br>
+			<code>blog_template\lib\services\service.dart</code>
+		</p>
+		
+		<p>
+			Finally, you need to delete the following lines from the 'locator.dart' file:<br>
+			<code>blog_template\lib\locator.dart</code>
+		</p>
+
+<pre>getIt.registerSingleton<BookmarkDataStore>(BookmarkDataStore());
+getIt.registerSingleton<CategoryDataStore>(CategoryDataStore());
+getIt.registerSingleton<CommentDataStore>(CommentDataStore());
+getIt.registerSingleton<PostDataStore>(PostDataStore());
+getIt.registerSingleton<UserDataStore>(UserDataStore());
+getIt.registerSingleton<KeywordDataStore>(KeywordDataStore());
+
+getIt.registerFactory(() => Service());</pre>
+
+		<hr/>
+
+		<h2 id="more"><strong>More Help</strong> - <a href="#toc">top</a></h2>
+
+		<p>
+			If you need more help publishing Android and iOS apps, follow the links below.
+		</p>
+
+		<ul>
+			<li><a href="https://docs.flutter.dev/deployment/android#updating-the-apps-version-number">Build and release an Android app</a></li>
+			<li><a href="https://docs.flutter.dev/deployment/ios#add-an-app-icon">Build and release an iOS app</a></li>
+		</ul>
+
+		<hr>
+
+		<p>Once again, thank you so much for purchasing this product. As I said at the beginning, I'd be glad to help you if you have any questions relating to this product. No guarantees, but I'll do my best to assist. If you have a more general question relating to the items on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 
+		
+		<p class="append-bottom alt large"><strong>Ahmet Zeki Eymür</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
